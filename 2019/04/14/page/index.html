@@ -3,15 +3,24 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>The Road</title>
+  <title>关于日志的时区问题 | The Road</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="The Road">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="问题docker中的日志因先导入文件服务器后，再通过Filebeat传入ES。发现日志时间差8小时。初步查询后是因为docker内时区为UCT，文件服务器时区为PRC，导致传入了UCT的时间，PRC的时区。 解决方法一：DockerFile中修改容器时区 1RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;amp;&amp;amp;">
+<meta name="keywords" content="Kibana,日志,issue,工作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于日志的时区问题">
+<meta property="og:url" content="http://yoursite.com/2019/04/14/page/index.html">
 <meta property="og:site_name" content="The Road">
+<meta property="og:description" content="问题docker中的日志因先导入文件服务器后，再通过Filebeat传入ES。发现日志时间差8小时。初步查询后是因为docker内时区为UCT，文件服务器时区为PRC，导致传入了UCT的时间，PRC的时区。 解决方法一：DockerFile中修改容器时区 1RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;amp;&amp;amp;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://thumbnail10.baidupcs.com/thumbnail/739e14b0871421d185645f76abef8225?fid=1409794109-250528-658621813403311&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-%2fwZdWvyUBnt%2fKuuSz5AsKq2yZ5I%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2404523620559215769&dp-callid=0&time=1555228800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
+<meta property="og:image" content="https://thumbnail10.baidupcs.com/thumbnail/395722ee924a3c4cdef07e0e19aa38f6?fid=1409794109-250528-580700258856185&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-2jHP1OUeEe4EDfZSR0XyJeUjCVQ%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2404523620559215769&dp-callid=0&time=1555228800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
+<meta property="og:image" content="https://thumbnail10.baidupcs.com/thumbnail/ef413cf9fa70e8de6998a8868973016a?fid=1409794109-250528-569092507106343&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-CERKjJ05vcHYB87VFIZP3wNsBWY%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2404523620559215769&dp-callid=0&time=1555228800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
+<meta property="og:updated_time" content="2019-04-14T09:45:34.755Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Road">
+<meta name="twitter:title" content="关于日志的时区问题">
+<meta name="twitter:description" content="问题docker中的日志因先导入文件服务器后，再通过Filebeat传入ES。发现日志时间差8小时。初步查询后是因为docker内时区为UCT，文件服务器时区为PRC，导致传入了UCT的时间，PRC的时区。 解决方法一：DockerFile中修改容器时区 1RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;amp;&amp;amp;">
+<meta name="twitter:image" content="https://thumbnail10.baidupcs.com/thumbnail/739e14b0871421d185645f76abef8225?fid=1409794109-250528-658621813403311&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-%2fwZdWvyUBnt%2fKuuSz5AsKq2yZ5I%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2404523620559215769&dp-callid=0&time=1555228800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
   
     <link rel="alternate" href="/atom.xml" title="The Road" type="application/atom+xml">
   
@@ -47,7 +56,7 @@
     <div class="collapse navbar-collapse" id="main-menu-navbar">
       <ul class="nav navbar-nav">
         
-          <li><a class="active" href="/index.html">Home</a></li>
+          <li><a class href="/index.html">Home</a></li>
         
           <li><a class href="/archives/">Archives</a></li>
         
@@ -72,15 +81,13 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          
-  
-    <article id="post-page" class="article article-type-post" itemscope itemprop="blogPost">
+          <article id="post-page" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/14/page/">关于日志的时区问题</a>
+    <h1 class="article-title" itemprop="name">
+      关于日志的时区问题
     </h1>
   
 
@@ -137,11 +144,10 @@
     </footer>
   </div>
   
-</article>
-
-
+    
 
   
+</article>
 
 
 
