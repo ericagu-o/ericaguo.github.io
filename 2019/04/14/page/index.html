@@ -5,22 +5,21 @@
   
   <title>关于日志的时区问题 | The Road</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题docker中的日志因先导入文件服务器后，再通过Filebeat传入ES。发现日志时间差8小时。初步查询后是因为docker内时区为UCT，文件服务器时区为PRC，导致传入了UCT的时间，PRC的时区。 解决方法一：DockerFile中修改容器时区 1RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;amp;&amp;amp;">
+  <meta name="description" content="问题docker中的日志因先导入文件服务器后，再通过Filebeat传入ES。发现日志时间差8小时。初步查询后是因为docker内时区为UCT，文件服务器时区为PRC，导致传入了UCT的时间，PRC的时区。 解决方法一：DockerFile中校正容器时区 1RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;amp;&amp;amp;">
 <meta name="keywords" content="Kibana,日志,issue,工作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于日志的时区问题">
 <meta property="og:url" content="http://yoursite.com/2019/04/14/page/index.html">
 <meta property="og:site_name" content="The Road">
-<meta property="og:description" content="问题docker中的日志因先导入文件服务器后，再通过Filebeat传入ES。发现日志时间差8小时。初步查询后是因为docker内时区为UCT，文件服务器时区为PRC，导致传入了UCT的时间，PRC的时区。 解决方法一：DockerFile中修改容器时区 1RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;amp;&amp;amp;">
+<meta property="og:description" content="问题docker中的日志因先导入文件服务器后，再通过Filebeat传入ES。发现日志时间差8小时。初步查询后是因为docker内时区为UCT，文件服务器时区为PRC，导致传入了UCT的时间，PRC的时区。 解决方法一：DockerFile中校正容器时区 1RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;amp;&amp;amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://thumbnail10.baidupcs.com/thumbnail/739e14b0871421d185645f76abef8225?fid=1409794109-250528-658621813403311&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-%2fwZdWvyUBnt%2fKuuSz5AsKq2yZ5I%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2404523620559215769&dp-callid=0&time=1555228800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
-<meta property="og:image" content="https://thumbnail10.baidupcs.com/thumbnail/395722ee924a3c4cdef07e0e19aa38f6?fid=1409794109-250528-580700258856185&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-2jHP1OUeEe4EDfZSR0XyJeUjCVQ%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2404523620559215769&dp-callid=0&time=1555228800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
-<meta property="og:image" content="https://thumbnail10.baidupcs.com/thumbnail/ef413cf9fa70e8de6998a8868973016a?fid=1409794109-250528-569092507106343&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-CERKjJ05vcHYB87VFIZP3wNsBWY%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2404523620559215769&dp-callid=0&time=1555228800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
-<meta property="og:updated_time" content="2019-04-14T09:45:34.755Z">
+<meta property="og:image" content="https://thumbnail0.baidupcs.com/thumbnail/043f3dff7d9760dab0c5231073fea78a?fid=1409794109-250528-464088865211264&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-lgqRWzLt3hlQVHW9TAtxUXkAC5o%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2477694262539354269&dp-callid=0&time=1555498800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
+<meta property="og:image" content="https://thumbnail0.baidupcs.com/thumbnail/9d0b0b6703910e92ef6b5ea7d21ff195?fid=1409794109-250528-95375248117115&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-wqGaFBtS%2fPUZBqtF684t9A74bfs%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2477694262539354269&dp-callid=0&time=1555498800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
+<meta property="og:updated_time" content="2019-04-17T11:57:45.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于日志的时区问题">
-<meta name="twitter:description" content="问题docker中的日志因先导入文件服务器后，再通过Filebeat传入ES。发现日志时间差8小时。初步查询后是因为docker内时区为UCT，文件服务器时区为PRC，导致传入了UCT的时间，PRC的时区。 解决方法一：DockerFile中修改容器时区 1RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;amp;&amp;amp;">
-<meta name="twitter:image" content="https://thumbnail10.baidupcs.com/thumbnail/739e14b0871421d185645f76abef8225?fid=1409794109-250528-658621813403311&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-%2fwZdWvyUBnt%2fKuuSz5AsKq2yZ5I%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2404523620559215769&dp-callid=0&time=1555228800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
+<meta name="twitter:description" content="问题docker中的日志因先导入文件服务器后，再通过Filebeat传入ES。发现日志时间差8小时。初步查询后是因为docker内时区为UCT，文件服务器时区为PRC，导致传入了UCT的时间，PRC的时区。 解决方法一：DockerFile中校正容器时区 1RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;amp;&amp;amp;">
+<meta name="twitter:image" content="https://thumbnail0.baidupcs.com/thumbnail/043f3dff7d9760dab0c5231073fea78a?fid=1409794109-250528-464088865211264&rt=pr&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-lgqRWzLt3hlQVHW9TAtxUXkAC5o%3d&expires=8h&chkbd=0&chkv=0&dp-logid=2477694262539354269&dp-callid=0&time=1555498800&size=c10000_u10000&quality=90&vuk=1409794109&ft=image">
   
     <link rel="alternate" href="/atom.xml" title="The Road" type="application/atom+xml">
   
@@ -112,14 +111,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>docker中的日志因先导入文件服务器后，再通过Filebeat传入ES。发现日志时间差8小时。初步查询后是因为docker内时区为UCT，文件服务器时区为PRC，导致传入了UCT的时间，PRC的时区。</p>
-<h2 id="解决方法一："><a href="#解决方法一：" class="headerlink" title="解决方法一："></a>解决方法一：</h2><p>DockerFile中修改容器时区</p>
+<h2 id="解决方法一："><a href="#解决方法一：" class="headerlink" title="解决方法一："></a>解决方法一：</h2><p>DockerFile中校正容器时区</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;&amp; echo &apos;Asia/Shanghai&apos; &gt;/etc/timezone</span><br></pre></td></tr></table></figure>
-<p><img src="https://thumbnail10.baidupcs.com/thumbnail/739e14b0871421d185645f76abef8225?fid=1409794109-250528-658621813403311&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-%2fwZdWvyUBnt%2fKuuSz5AsKq2yZ5I%3d&amp;expires=8h&amp;chkbd=0&amp;chkv=0&amp;dp-logid=2404523620559215769&amp;dp-callid=0&amp;time=1555228800&amp;size=c10000_u10000&amp;quality=90&amp;vuk=1409794109&amp;ft=image" alt="dockerfile"></p>
 <p>结果：解决问题</p>
 <h2 id="解决方法二："><a href="#解决方法二：" class="headerlink" title="解决方法二："></a>解决方法二：</h2><p>在logstash的conf文件中，解析时间字段时，增加timezone字段，值可以通过filebeat传入。</p>
-<p> <img src="https://thumbnail10.baidupcs.com/thumbnail/395722ee924a3c4cdef07e0e19aa38f6?fid=1409794109-250528-580700258856185&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-2jHP1OUeEe4EDfZSR0XyJeUjCVQ%3d&amp;expires=8h&amp;chkbd=0&amp;chkv=0&amp;dp-logid=2404523620559215769&amp;dp-callid=0&amp;time=1555228800&amp;size=c10000_u10000&amp;quality=90&amp;vuk=1409794109&amp;ft=image" alt="conf文件"></p>
-<p> <img src="https://thumbnail10.baidupcs.com/thumbnail/ef413cf9fa70e8de6998a8868973016a?fid=1409794109-250528-569092507106343&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-CERKjJ05vcHYB87VFIZP3wNsBWY%3d&amp;expires=8h&amp;chkbd=0&amp;chkv=0&amp;dp-logid=2404523620559215769&amp;dp-callid=0&amp;time=1555228800&amp;size=c10000_u10000&amp;quality=90&amp;vuk=1409794109&amp;ft=image" alt="filebeat.yml"></p>
-<p>timezone查询：<a href="http://joda-time.sourceforge.net/timezones.html" target="_blank" rel="noopener">http://joda-time.sourceforge.net/timezones.html</a><br>结果：解决问题</p>
+<p> <img src="https://thumbnail0.baidupcs.com/thumbnail/043f3dff7d9760dab0c5231073fea78a?fid=1409794109-250528-464088865211264&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-lgqRWzLt3hlQVHW9TAtxUXkAC5o%3d&amp;expires=8h&amp;chkbd=0&amp;chkv=0&amp;dp-logid=2477694262539354269&amp;dp-callid=0&amp;time=1555498800&amp;size=c10000_u10000&amp;quality=90&amp;vuk=1409794109&amp;ft=image" alt="conf文件"></p>
+<p> <img src="https://thumbnail0.baidupcs.com/thumbnail/9d0b0b6703910e92ef6b5ea7d21ff195?fid=1409794109-250528-95375248117115&amp;rt=pr&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-wqGaFBtS%2fPUZBqtF684t9A74bfs%3d&amp;expires=8h&amp;chkbd=0&amp;chkv=0&amp;dp-logid=2477694262539354269&amp;dp-callid=0&amp;time=1555498800&amp;size=c10000_u10000&amp;quality=90&amp;vuk=1409794109&amp;ft=image" alt="filebeat.yml"></p>
+<p>timezone查询：<a href="http://joda-time.sourceforge.net/timezones.html" target="_blank" rel="noopener">http://joda-time.sourceforge.net/timezones.html</a></p>
+<p>结果：解决问题</p>
 <hr>
 <h2 id="时区问题的解释"><a href="#时区问题的解释" class="headerlink" title="时区问题的解释"></a>时区问题的解释</h2><p>很多中国用户经常提一个问题：为什么 @timestamp 比我们早了 8 个小时？怎么修改成北京时间？<br>其实，Elasticsearch 内部，对时间类型字段，是统一采用 UTC 时间，存成 long 长整形数据的！对日志统一采用 UTC 时间存储，是国际安全/运维界的一个通识——欧美公司的服务器普遍广泛分布在多个时区里——不像中国，地域横跨五个时区却只用北京时间。<br>对于页面查看，ELK 的解决方案是在 Kibana 上，读取浏览器的当前时区，然后在页面上转换时间内容的显示。<br>所以，建议大家接受这种设定。否则，即便你用 .getLocalTime 修改，也还要面临在 Kibana 上反过去修改，以及 Elasticsearch 原有的 [“now-1h” TO “now”] 这种方便的搜索语句无法正常使用的尴尬。<br>以上，请读者自行斟酌。</p>
 <p><a href="https://www.elastic.co/guide/en/logstash/current/plugins-filters-date.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/logstash/current/plugins-filters-date.html</a><br><a href="http://joda-time.sourceforge.net/timezones.html" target="_blank" rel="noopener">http://joda-time.sourceforge.net/timezones.html</a><br><a href="https://doc.yonyoucloud.com/doc/logstash-best-practice-cn/filter/date.html" target="_blank" rel="noopener">https://doc.yonyoucloud.com/doc/logstash-best-practice-cn/filter/date.html</a><br><a href="https://discuss.elastic.co/t/how-to-set-timestamp-timezone/28401/14" target="_blank" rel="noopener">https://discuss.elastic.co/t/how-to-set-timestamp-timezone/28401/14</a></p>
